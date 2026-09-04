@@ -1,0 +1,44 @@
+spring:
+  #servlet:
+  #context-path: /apkagari
+  profiles:
+    active: local
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:911850789033-c371p0e7ni14lrtko8243dhmsr7h0k5k.apps.googleusercontent.com}
+            client-secret: ${GOOGLE_CLIENT_SECRET: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}
+            scope:
+              - openid
+              - profile
+              - email
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: common-OAuth-security
+    version: 1.0.0
+
+server:
+  port: 8081
+
+springdoc:
+  api-docs:
+    path: /api/v3/api-docs
+  swagger-ui:
+    path: /api/swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+
+
